@@ -1,0 +1,31 @@
+CREATE TABLE studentlogin(
+    id_student INT NOT NULL AUTO_INCREMENT,
+    student_user_name VARCHAR(32) NOT NULL,
+    student_user_passwd VARCHAR(64) NOT NULL,
+    UNIQUE KEY id_student_uq (id_student)
+    );
+
+
+INSERT INTO alumnos VALUES 
+(1,'Adrian','Chicaiza','2000-12-17');
+(2,'Alexander','Tupiza','2001-06-03'),
+(3,'Antonio','Villegas','2001-12-10'),
+(4,'Ariel','Calderon','1998-06-26'),
+(5,'Jonathan','Palacios','1999-02-28'),
+(6,'Christian','Palacios','1999-01-09');
+
+INSERT INTO studentlogin VALUES # sentencia que nos permite ingresar datos en una tabla
+(1,'polethesarias@epn.edu.ec','nuncameolvides3578'),
+(2,'chrispalacios@epn.edu.ec','Agujeronegro1'),
+(3,'nuevo@example.com','1234567'),
+(4,'ejemplo@pn.edu.ec','prueba123');
+
+CREATE TABLE matriculas ( 
+    alumno INT NOT NULL,
+    asignatura INT NOT NULL,
+    fecha YEAR NOT NULL,
+    nota INT,
+    PRIMARY KEY (alumno, asignatura, fecha),
+    FOREIGN KEY alumno_matriculado(alumno) REFERENCES alumnos(id_alumno),
+    FOREIGN KEY asignatura_matriculada(asignatura) REFERENCES asignaturas(id_asignatura)
+    );
